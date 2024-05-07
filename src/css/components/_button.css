@@ -1,0 +1,59 @@
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn.btn-primary,
+.btn.btn-primary-circle{
+    color: var(--black-10);
+    background: var(--primary);
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary-circle:hover{
+    background: var(--primary-010);
+    color: var(--white);
+}
+
+.btn.btn-danger,
+.btn.btn-danger-circle{
+    color: var(--white);
+    background: var(--red);
+}
+
+.btn.btn-danger:hover,
+.btn.btn-danger-circle:hover{
+    background: var(--red-010);
+}
+
+.btn.btn-primary,
+.btn.btn-danger{
+    font-size: 16px;
+    border-radius: 50px;
+    padding: 10px 20px;
+}
+
+.btn.btn-primary-circle,
+.btn.btn-danger-circle{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+}
+
+.btn.btn-primary-circle::after,
+.btn.btn-danger-circle::after{
+    top: 1px;
+    position: relative;
+}
+
+.btn.btn-primary-circle::after{
+    content: url(../../assets/icons/add.svg);
+}
+
+.btn.btn-danger-circle::after{
+    content: url(../../assets/icons/delete.svg);
+}
