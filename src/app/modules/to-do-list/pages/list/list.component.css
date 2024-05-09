@@ -7,15 +7,15 @@
     align-items: center;
     flex-direction: column;
 
-    div.container{
+    .container{
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
+        flex-direction: column; 
+    }
 
-        .btn-primary, div{
-            margin-top: 30px;
-            width: 100%;
-        }
+    .btn-primary,app-item{
+        margin-top: 30px;
+        width: 100%;
     }
 }

@@ -4,12 +4,8 @@
     @if (addItem()) {
         <button class="btn btn-primary" (click)="addItem.set(false)">Crie uam lista de tarefas</button>
     }@else{
-        <div>
-            <label class="input-label-text" for="inputValue">
-                <input type="text" placeholder="Adicione um novo item" id="inputValue" autofocus>
-    
-                <button class="btn btn-primary-circle" title="Adicionar um novo item"></button>
-            </label>
-        </div>
+        <app-item [inputListItems]="getListItems()"
+            (outpuAddListItems)="getInputAddItem($event)" 
+        />
     }
 </div>
