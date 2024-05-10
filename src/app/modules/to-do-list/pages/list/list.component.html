@@ -10,5 +10,19 @@
         }
     </div>
 }@else {
-    <app-item [inputListItems]="getListItems()" (outpuAddListItems)="getInputAddItem($event)" />
+    <app-item 
+        [inputListItems]="getListItems()" 
+        (outpuAddListItems)="getInputAddItem($event)" 
+    />
+    <main class="container">
+        <h2>Pendencias</h2>
+        <app-input-list-item [inputListItems]="getListItems()" />
+
+        
+    </main>
+    <footer>
+        <button class="btn btn-danger" (click)="deleteAllItems()">
+            Deletar todos os items
+        </button>
+    </footer>
 }

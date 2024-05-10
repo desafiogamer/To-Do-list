@@ -18,4 +18,28 @@
         margin-top: 30px;
         width: 100%;
     }
+
+    main.container{
+        height: calc(100vh - 130px - 90px);
+        height: calc(100dvh - 130px - 90px);
+        overflow-y: auto;
+    }
+
+    main.container::-webkit-scrollbar-track{
+        background: var(--black--010);
+    }  
+
+    main.container::-webkit-scrollbar{
+        background: var(--primary);
+        border-radius: 5px;
+    }   
+
+    footer{
+        height: 90px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 2px solid var(--black--010);
+    }
 }

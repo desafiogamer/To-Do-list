@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 //components
+import { InputListItemComponent } from '../../components/input-list-item/input-list-item.component';
 import { ItemComponent } from '../../components/input-add/item/item.component';
 
 //interfaces
@@ -11,7 +12,8 @@ import { outpuListItems } from '../../interface/outputList.interface';
   selector: 'app-list',
   standalone: true,
   imports: [
-    ItemComponent
+    ItemComponent,
+    InputListItemComponent
   ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
@@ -28,6 +30,11 @@ export class ListComponent {
 
   public getInputAddItem(value: outpuListItems){
     localStorage.setItem('@my-list', JSON.stringify([...this.#setListItems(), value]));
+    return this.#setListItems.set(this.#parseItem())
+  }
+
+  public deleteAllItems(){
+    localStorage.removeItem('@my-list');
     return this.#setListItems.set(this.#parseItem())
   }
 }
