@@ -4,9 +4,9 @@
             height="166px" loading="eager">
 
         @if (addItem()) {
-        <button class="btn btn-primary" (click)="addItem.set(false)">Crie uam lista de tarefas</button>
+            <button class="btn btn-primary" (click)="addItem.set(false)">Crie uam lista de tarefas</button>
         }@else{
-        <app-item [inputListItems]="getListItems()" (outpuAddListItems)="getInputAddItem($event)" />
+            <app-item [inputListItems]="getListItems()" (outpuAddListItems)="getInputAddItem($event)" />
         }
     </div>
 }@else {
@@ -14,12 +14,25 @@
         [inputListItems]="getListItems()" 
         (outpuAddListItems)="getInputAddItem($event)" 
     />
-    <main class="container">
-        <h2>Pendencias</h2>
-        <app-input-list-item [inputListItems]="getListItems()" />
 
+    <main class="container">
+        @if (ListItemsStage('pending').length) {
+            <h2>Pendencias</h2>
+            <app-input-list-item 
+                [inputListItems]="ListItemsStage('pending')" 
+                (outputUpadateItemCheckbox)="updateItemCheckbox($event)"
+            />
+        }
         
+        @if (ListItemsStage('completetd').length) {
+            <h2>Concluidas</h2>
+            <app-input-list-item 
+                [inputListItems]="ListItemsStage('completetd')" 
+                (outputUpadateItemCheckbox)="updateItemCheckbox($event)"
+            />
+        }
     </main>
+
     <footer>
         <button class="btn btn-danger" (click)="deleteAllItems()">
             Deletar todos os items

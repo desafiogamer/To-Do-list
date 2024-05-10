@@ -33,6 +33,38 @@ export class ListComponent {
     return this.#setListItems.set(this.#parseItem())
   }
 
+  public ListItemsStage(value:'pending' | 'completetd'){
+    return this.getListItems().filter((res: outpuListItems) => {
+      if(value === 'pending'){
+        return !res.checked;
+      }
+
+      if(value === 'completetd'){
+        return res.checked;
+      }
+
+      return res
+    })
+  }
+
+  public updateItemCheckbox(newItem: {id:string, checked:boolean}){
+    this.#setListItems.update((oldValue: outpuListItems[])=>{
+      oldValue.filter(res => {
+        if(res.id === newItem.id){
+          res.checked = newItem.checked
+
+          return res
+        }
+        return res
+      });
+
+      return oldValue
+    });
+
+    return localStorage.setItem('@my-list', JSON.stringify(this.#setListItems()))
+
+  }
+
   public deleteAllItems(){
     localStorage.removeItem('@my-list');
     return this.#setListItems.set(this.#parseItem())
