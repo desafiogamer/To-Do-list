@@ -4,7 +4,9 @@
     @if (inputListItems.length) {
        <h1>Minha lista</h1> 
     }
-    <div>
+    <div [ngClass]="{
+        'container': inputListItems.length
+    }">
         <label 
             class="input-label-text" 
             for="inputValue"
