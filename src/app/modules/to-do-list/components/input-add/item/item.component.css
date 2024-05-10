@@ -1,0 +1,18 @@
+:host{
+    width: 100%;
+
+    h1{
+        font-size: 18px;
+        margin: 18px 0;
+        color: var(--white);
+        text-align: center;
+    }
+
+    .has-item{
+        width: 100%;
+    }
+
+    .remove-margin-bottom{
+        margin-bottom: 0;
+    }
+}

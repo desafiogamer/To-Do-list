@@ -5,7 +5,13 @@
        <h1>Minha lista</h1> 
     }
     <div>
-        <label class="input-label-text" for="inputValue">
+        <label 
+            class="input-label-text" 
+            for="inputValue"
+            [ngClass]="{
+                'remove-margin-bottom': !inputListItems.length
+            }"
+        >
             <input 
                 (keyup.enter)="focusAddItem(inputText.value)"
                 type="text"
@@ -13,9 +19,6 @@
                 id="inputValue" 
                 autofocus
                 #inputText
-                [ngClass]="{
-                    'remove-margin-bottom': inputListItems.length
-                }"
             >
 
             <button 
