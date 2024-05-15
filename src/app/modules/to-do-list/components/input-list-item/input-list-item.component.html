@@ -3,7 +3,7 @@
         <input 
             type="checkbox" 
             #inputCheckbox [checked]="item.checked"
-            (input)="upadateItemCheckbox(inputCheckbox.checked, item.id)"
+            (input)="upadateItemCheckbox(item.id, inputCheckbox.checked)"
         >
 
         <input 
@@ -15,6 +15,6 @@
             (input)="upadateItemText(item.id, inputValue.value)"
         >
 
-        <button class="btn btn-danger-circle" title="Delete este item"></button>
+        <button class="btn btn-danger-circle" title="Delete este item" (click)="deleteItemText(item.id)"></button>
     </label>
 }

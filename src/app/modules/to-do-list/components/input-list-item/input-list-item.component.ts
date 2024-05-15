@@ -13,9 +13,9 @@ import { outpuListItems } from '../../interface/outputList.interface';
 export class InputListItemComponent {
   @Input({required: true}) public inputListItems: outpuListItems[] = [];
 
-  @Output() public outputUpadateItemCheckbox = new EventEmitter<{checked: boolean, id: string}>()
+  @Output() public outputUpadateItemCheckbox = new EventEmitter<{id: string,checked: boolean }>()
 
-  public upadateItemCheckbox(checked: boolean, id: string){
+  public upadateItemCheckbox(id: string, checked: boolean){
     return this.outputUpadateItemCheckbox.emit({id, checked})
   }
 
@@ -24,6 +24,13 @@ export class InputListItemComponent {
 
   public upadateItemText(id: string, value: string){
     return this.outputUpadateItemText.emit({id, value})
+  }
+
+
+  @Output() public outputDeleteItemText = new EventEmitter<string>();
+
+  public deleteItemText(id: string){
+    return this.outputDeleteItemText.emit(id)
   }
 
 }
