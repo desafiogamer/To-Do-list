@@ -19,5 +19,12 @@ export class InputListItemComponent {
     return this.outputUpadateItemCheckbox.emit({id, checked})
   }
 
+
+  @Output() public outputUpadateItemText = new EventEmitter<{id: string, value:string}>()
+
+  public upadateItemText(id: string, value: string){
+    return this.outputUpadateItemText.emit({id, value})
+  }
+
 }
 

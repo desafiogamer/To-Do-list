@@ -21,6 +21,7 @@
             <app-input-list-item 
                 [inputListItems]="ListItemsStage('pending')" 
                 (outputUpadateItemCheckbox)="updateItemCheckbox($event)"
+                (outputUpadateItemText)="updateItemText($event)"
             />
         }
         
@@ -29,6 +30,7 @@
             <app-input-list-item 
                 [inputListItems]="ListItemsStage('completetd')" 
                 (outputUpadateItemCheckbox)="updateItemCheckbox($event)"
+                (outputUpadateItemText)="updateItemText($event)"
             />
         }
     </main>
